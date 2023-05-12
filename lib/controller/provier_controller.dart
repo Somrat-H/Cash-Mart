@@ -6,8 +6,10 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class ProviderController extends GetxController{
-  ProviderModel? _providerModel;
-  
+  ProviderModel? providerModel;
+  List<Data> data = [];
+
+
   //Create function for calling getApi
   getProviderData()async{
     try{
@@ -16,10 +18,18 @@ class ProviderController extends GetxController{
 
       //statuscode 200 mean api call successfully
       if(response.statusCode == 200){
-        var data = jsonDecode(response.body);
-        _providerModel = ProviderModel.fromJson(data);
-      }
+        var s = jsonDecode(response.body);
+        
+       providerModel = ProviderModel.fromJson(s);
 
+
+      //here store provider data for higlights value 1 and store into datamodel type list.
+      for(var i = 0; i < 8; i++){
+       if(providerModel!.data![i].highlight == 1){
+        data.add(providerModel!.data![i]);
+       }
+      }
+      }
     }catch(e){
       //this e for print if any error got
       debugPrint(e.toString());
