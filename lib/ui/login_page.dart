@@ -14,8 +14,8 @@ class _LogPageState extends State<LogPage> {
   //inject the dependence
   final loginController = Get.put(LoginController());
 
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class _LogPageState extends State<LogPage> {
               height: 20,
             ),
             TextField(
-              controller: _emailController,
+              controller: emailController,
               decoration: InputDecoration(
                   labelText: 'email',
                   border: OutlineInputBorder(
@@ -59,7 +59,7 @@ class _LogPageState extends State<LogPage> {
             ),
             const SizedBox(height: 16.0),
             TextField(
-              controller: _passwordController,
+              controller: passwordController,
               decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(
@@ -75,7 +75,7 @@ class _LogPageState extends State<LogPage> {
 
                   //calling loginMethod by loginController
                   loginController.getLogIn(
-                      _emailController, _passwordController);
+                      emailController, passwordController);
                 })
           ],
         ),

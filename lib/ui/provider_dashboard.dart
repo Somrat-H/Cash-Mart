@@ -26,7 +26,7 @@ class _ProviderDashboardState extends State<ProviderDashboard> {
     //called the api called for getting Provider data
     controller.getProviderData();
 
-    // TODO: implement initState
+  
     super.initState();
   }
 
@@ -79,45 +79,54 @@ class _ProviderDashboardState extends State<ProviderDashboard> {
               padding: const EdgeInsets.only(left: 23, right: 30),
               child: Row(
                 children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      color: Colors.black12,
-                    ),
-                    height: 50,
-                    width: MediaQuery.of(context).size.width * .70,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: const [
-                          Icon(
-                            Icons.search,
-                            size: 25,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            'Search',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ],
+                  Expanded(
+                    flex: 10,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: Colors.black12,
+                      ),
+                      height: 50,
+                                   
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.search,
+                              size: 25,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Search',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                      color: Colors.black12,
+                  const Expanded(
+                    flex: 1,
+                    child: SizedBox(
+                      width: 20,
                     ),
-                    height: 50,
-                    width: 50,
-                    child: const Icon(
-                      Icons.more_horiz,
-                      size: 30,
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: Colors.black12,
+                      ),
+                      height: 50,
+                      width: 50,
+                      child: const Icon(
+                        Icons.more_horiz,
+                        size: 30,
+                      ),
                     ),
                   )
                 ],
@@ -238,7 +247,7 @@ class _ProviderDashboardState extends State<ProviderDashboard> {
                   child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
-                      itemCount: controller.providerModel!.data!.length,
+                      itemCount: controller.providerModel?.data?.length,
                       itemBuilder: (_, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),

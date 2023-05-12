@@ -8,10 +8,12 @@ class ProviderModel {
   int? lastPage;
   String? lastPageUrl;
   List<Links>? links;
-  Null? nextPageUrl;
+  // ignore: prefer_typing_uninitialized_variables
+  var nextPageUrl;
   String? path;
   int? perPage;
-  Null? prevPageUrl;
+  // ignore: prefer_typing_uninitialized_variables
+  var prevPageUrl;
   int? to;
   int? total;
 
@@ -39,7 +41,7 @@ class ProviderModel {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add( Data.fromJson(v));
       });
     }
     firstPageUrl = json['first_page_url'];
@@ -49,7 +51,7 @@ class ProviderModel {
     if (json['links'] != null) {
       links = <Links>[];
       json['links'].forEach((v) {
-        links!.add(new Links.fromJson(v));
+        links!.add(Links.fromJson(v));
       });
     }
     nextPageUrl = json['next_page_url'];
@@ -61,26 +63,26 @@ class ProviderModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
-    data['message'] = this.message;
-    data['current_page'] = this.currentPage;
+    final Map<String, dynamic> data =  <String, dynamic>{};
+    data['success'] = success;
+    data['message'] = message;
+    data['current_page'] = currentPage;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
-    data['first_page_url'] = this.firstPageUrl;
-    data['from'] = this.from;
-    data['last_page'] = this.lastPage;
-    data['last_page_url'] = this.lastPageUrl;
-    if (this.links != null) {
-      data['links'] = this.links!.map((v) => v.toJson()).toList();
+    data['first_page_url'] = firstPageUrl;
+    data['from'] = from;
+    data['last_page'] = lastPage;
+    data['last_page_url'] = lastPageUrl;
+    if (links != null) {
+      data['links'] = links!.map((v) => v.toJson()).toList();
     }
-    data['next_page_url'] = this.nextPageUrl;
-    data['path'] = this.path;
-    data['per_page'] = this.perPage;
-    data['prev_page_url'] = this.prevPageUrl;
-    data['to'] = this.to;
-    data['total'] = this.total;
+    data['next_page_url'] = nextPageUrl;
+    data['path'] = path;
+    data['per_page'] = perPage;
+    data['prev_page_url'] = prevPageUrl;
+    data['to'] = to;
+    data['total'] = total;
     return data;
   }
 }
@@ -88,7 +90,8 @@ class ProviderModel {
 class Data {
   String? uuid;
   String? businessName;
-  Null? categoryId;
+  // ignore: prefer_typing_uninitialized_variables
+  var categoryId;
   String? vatNo;
   String? regNo;
   String? idNo;
@@ -99,7 +102,8 @@ class Data {
   String? webLink;
   int? highlight;
   String? category;
-  Null? keyword;
+// ignore: prefer_typing_uninitialized_variables
+var keyword;
   String? imagePath;
   String? backgroundImagePath;
   File? file;
@@ -142,35 +146,35 @@ class Data {
     keyword = json['keyword'];
     imagePath = json['image_path'];
     backgroundImagePath = json['background_image_path'];
-    file = json['file'] != null ? new File.fromJson(json['file']) : null;
+    file = json['file'] != null ? File.fromJson(json['file']) : null;
     cashback = json['cashback'] != null
-        ? new Cashback.fromJson(json['cashback'])
+        ? Cashback.fromJson(json['cashback'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['uuid'] = this.uuid;
-    data['business_name'] = this.businessName;
-    data['category_id'] = this.categoryId;
-    data['vat_no'] = this.vatNo;
-    data['reg_no'] = this.regNo;
-    data['id_no'] = this.idNo;
-    data['type'] = this.type;
-    data['email'] = this.email;
-    data['phone'] = this.phone;
-    data['note'] = this.note;
-    data['web_link'] = this.webLink;
-    data['highlight'] = this.highlight;
-    data['category'] = this.category;
-    data['keyword'] = this.keyword;
-    data['image_path'] = this.imagePath;
-    data['background_image_path'] = this.backgroundImagePath;
-    if (this.file != null) {
-      data['file'] = this.file!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['uuid'] = uuid;
+    data['business_name'] = businessName;
+    data['category_id'] = categoryId;
+    data['vat_no'] = vatNo;
+    data['reg_no'] = regNo;
+    data['id_no'] = idNo;
+    data['type'] = type;
+    data['email'] = email;
+    data['phone'] = phone;
+    data['note'] = note;
+    data['web_link'] = webLink;
+    data['highlight'] = highlight;
+    data['category'] = category;
+    data['keyword'] = keyword;
+    data['image_path'] = imagePath;
+    data['background_image_path'] = backgroundImagePath;
+    if (file != null) {
+      data['file'] = file!.toJson();
     }
-    if (this.cashback != null) {
-      data['cashback'] = this.cashback!.toJson();
+    if (cashback != null) {
+      data['cashback'] = cashback!.toJson();
     }
     return data;
   }
@@ -208,15 +212,15 @@ class File {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['uuid'] = this.uuid;
-    data['name'] = this.name;
-    data['extension'] = this.extension;
-    data['creator_uuid'] = this.creatorUuid;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['background_image'] = this.backgroundImage;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['uuid'] = uuid;
+    data['name'] = name;
+    data['extension'] = extension;
+    data['creator_uuid'] = creatorUuid;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['background_image'] = backgroundImage;
     return data;
   }
 }
@@ -237,11 +241,11 @@ class Cashback {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['uuid'] = this.uuid;
-    data['provider_uuid'] = this.providerUuid;
-    data['percentage'] = this.percentage;
-    data['start_date'] = this.startDate;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['uuid'] = uuid;
+    data['provider_uuid'] = providerUuid;
+    data['percentage'] = percentage;
+    data['start_date'] = startDate;
     return data;
   }
 }
@@ -260,10 +264,10 @@ class Links {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['url'] = this.url;
-    data['label'] = this.label;
-    data['active'] = this.active;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['url'] = url;
+    data['label'] = label;
+    data['active'] = active;
     return data;
   }
 }

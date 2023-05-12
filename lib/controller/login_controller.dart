@@ -33,7 +33,7 @@ class LoginController extends GetxController{
    if(response.statusCode == 200){
         var data = jsonDecode(response.body);
       
-        debugPrint(data);
+        debugPrint(data.toString());
        
         //store the user token in local storage for future login and navigate direct user dashboard
         SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -52,7 +52,7 @@ class LoginController extends GetxController{
    logOut()async{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.clear();
-    Get.off(LogPage());
+    Get.off(const LogPage());
   }
 
 }

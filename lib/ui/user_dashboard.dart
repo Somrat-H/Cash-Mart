@@ -1,12 +1,9 @@
 import 'package:cash_mart/controller/login_controller.dart';
 import 'package:cash_mart/controller/provier_controller.dart';
-import 'package:cash_mart/ui/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 class UserDashboard extends StatefulWidget {
   const UserDashboard({super.key});
-
   @override
   State<UserDashboard> createState() => _UserDashboardState();
 }
@@ -25,7 +22,7 @@ class _UserDashboardState extends State<UserDashboard> {
 
     //called the api called for get provider data
     controller.getProviderData();
-    // TODO: implement initState
+
     super.initState();
   }
   @override

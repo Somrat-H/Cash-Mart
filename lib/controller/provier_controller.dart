@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class ProviderController extends GetxController{
   ProviderModel? providerModel;
-  List<Data> data = [];
+  final List<Data> data = [];
 
 
   //Create function for calling getApi
